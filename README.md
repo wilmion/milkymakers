@@ -1,18 +1,16 @@
 # Milky Makers
 Proyecto de una e-comerce , de productos comestibles
 
-####Frameworks
+#### Frameworks
  - React 
  
-####Tecnologias
+#### Tecnologias
  - Babel
  - Webpack
  - Typescript
  - Sass
 
-####Comandos de Ejecución :
-
-
+#### Comandos de Ejecución :
  - Encender el entorno de dessarrollo Local :
  ```actionscript
 npm run start || npm start
