@@ -1,0 +1,16 @@
+@import "../variables.scss";
+
+.main{
+    &__title{
+        font-size: 1.7rem;
+        color: $color-titles;
+        font-weight: bolder;
+        margin: 25px 0px 25px 25px;
+    }
+}
+.products{
+    display: grid;
+    grid-template-columns: repeat(2 , 40%);
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,0 +1,18 @@
+@import "../variables.scss";
+
+.header{
+    width: 100%;
+    background-color: $color-primary;
+    display:grid;
+    grid-template-columns: 20% 60% 20%;
+    padding: 24px 0;
+    &__title{
+        font-size: 2.3rem;
+        color: $color-claro;
+        text-align: center;
+    }
+    &__icon{
+        display: inline-block;
+        margin: auto;
+    }
+}
