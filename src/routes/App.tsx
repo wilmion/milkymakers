@@ -1,19 +1,23 @@
-import React from 'react';
+import React, {lazy , Suspense} from 'react';
 import { BrowserRouter , Route , Switch } from 'react-router-dom';
 
-import { ContextProvider } from '../Context/Context';
-import Home from '../pages/Home';
+const Home = lazy(() => import('../pages/Home'));
+const ProductInformation = lazy(() => import('../pages/ProductInformation'));
+const NotFound = lazy(() => import('../pages/NotFound'));
+
 import '../styles/global.scss';
 
 const App:React.FC = () => {
     return (
-        <ContextProvider>
+        <Suspense fallback={<div />}>
             <BrowserRouter>
                 <Switch>
                     <Route exact path='/' component={Home} />
+                    <Route exact path='/product/:id' component={ProductInformation} />
+                    <Route component={NotFound} />
                 </Switch>
             </BrowserRouter>
-        </ContextProvider>
+        </Suspense>
     )
 }
 

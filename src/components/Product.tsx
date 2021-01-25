@@ -1,17 +1,19 @@
-import React from 'react'
-import { IProduct } from '../models/interfaces';
+import React  from 'react'
+import { IProps } from '../models/interfaces';
 import '../styles/components/product.scss';
-const Product = (props:IProduct) => {
-    const { title , image , price , newProduct , description } = props;
+const Product = (props:IProps) => {
+    const { title , image , price , newProduct , description , details , Nameclass , modifiquer} = props;
+
     return (
-        <article className="product">
+        <article className={`${Nameclass} ${Nameclass}--${modifiquer}`}>
             {
                 newProduct &&
-                <p className="product__new">New</p>
+                <p className={`${Nameclass}__new`}>New</p>
             }  
-            <img className="product__image" src={image} alt={title}/>
-            <h2 className="product__title">{title}</h2>
-            <p className="product__price">{price} €</p>
+            <img className={`${Nameclass}__image `} src={image} alt={title}/>
+            <h2 className={`${Nameclass}__title`}>{title}</h2>
+            <p className={`${Nameclass}__price`}>{price} €</p>
+            {details && <p className="product__description">{description}</p> }
         </article>
     )
 }

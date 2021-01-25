@@ -15,4 +15,14 @@
         display: inline-block;
         margin: auto;
     }
+    &__search{
+        background: transparent;
+        border: none;
+        border-bottom: $color-claro solid 1px;
+        padding: 0 10px;
+        color: $color-claro;
+        &::placeholder{
+            color: $color-claro;
+        }
+    }
 }

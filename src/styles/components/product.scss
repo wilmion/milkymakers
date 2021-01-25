@@ -3,24 +3,53 @@
 .product{
     &__new{
         position: relative;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         color: $color-primary;
         font-weight: 500;
         transform: translate(85%,10px);
     }
     &__image{
-        width: 100%;
+        width: 90%;
         height: auto;
     }
     &__title{
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         color: $color-titles;
         margin: 5px 0;
+        font-weight:500;
     }
     &__price{
         font-size: 1.7rem;
         font-weight: 900;
         color: $color-primary;
         margin: 5px 0;
+    }
+    &__description {
+        font-size: 1.8rem;
+        color: $color-oscuro;
+        
+    }
+    &--left{
+        animation: inicioHomeL 3s;
+    }
+    &--rigth{
+        animation: inicioHomeR 3s;
+    }
+}
+
+@keyframes inicioHomeL{
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+@keyframes inicioHomeR{
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(0);
     }
 }

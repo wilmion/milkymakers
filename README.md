@@ -3,6 +3,7 @@ Proyecto de una e-comerce , de productos comestibles
 
 #### Frameworks
  - React 
+ - Redux
  
 #### Tecnologias
  - Babel
@@ -20,6 +21,8 @@ npm run start || npm start
 ```actionscript
 npm run build
 ```
+
+Creacion en mobile first
 
 Nunca pares de aprender 💚💚💚
 

@@ -1,8 +1,6 @@
-import React , {useState , useContext , useRef} from 'react'
+import React , {useRef} from 'react'
+import {Link} from 'react-router-dom';
 import {AiOutlineSearch , AiOutlineMenu} from 'react-icons/ai';
-
-import { Context } from '../Context/Context';
-import { APIResponse, IProduct } from '../models/interfaces';
 
 import '../styles/components/header.scss';
 
@@ -15,11 +13,11 @@ const Header= (props:any) => {
 
     return (
         <header className='header'>
-            <div className="header__icon">
+            <Link to="/" className="header__icon">
                 <AiOutlineMenu color="white" size="20px" />
-            </div>
+            </Link>
             {
-               searching ? <input ref={input_} type="text" placeholder="Buscar un producto" onChange={onChange(value_input)} /> : <h1 className='header__title'>MilkyMakers</h1>
+               searching ? <input ref={input_} className="header__search" type="text" placeholder="Buscar un producto" onChange={onChange(value_input)} /> : <h1 className='header__title'>MilkyMakers</h1>
             }
             <div className="header__icon">
                 <AiOutlineSearch color="white" size="14px" onClick={onClick} />

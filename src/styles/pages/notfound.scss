@@ -1,0 +1,29 @@
+@import "../variables.scss";
+
+.pagenotfound{
+    margin: 25vh auto;
+    width: 80%;
+    &__title{
+        font-size: 4rem;
+        margin: 15px 0;
+        text-align: center;
+    }
+    &__info{
+        font-size: 1.8rem;
+        margin: 15px 0;
+        text-align: center;
+    }
+    &__button{
+        background: $color-primary;
+        color: $color-claro;
+        font-size: 1.6rem;
+        width: 50%;
+        display: block;
+        text-align: center;
+        padding: 15px 0;
+        border-radius: 15px;
+        margin: 30px auto;
+
+        border-bottom-right-radius: 0;
+    }
+}
