@@ -1,0 +1,29 @@
+@import "../variables.scss";
+.payment{
+    &__title{
+        font-size: 2.0rem;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 35px 0;
+    }
+    &__total{
+        font-size: 1.6rem;
+        color: $color-primary;
+        text-align: center;
+        margin: 15px 0;
+        &::before{
+            content: 'Total: ';
+            color: $color-oscuro;
+        }
+    }
+    &__products {
+        font-size: 1.6rem;
+        color:green;
+        text-align: center;
+        margin: 15px 0;
+        &::before{
+            content: 'Products: ';
+            color: $color-oscuro;
+        }
+    }
+}

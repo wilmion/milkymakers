@@ -1,28 +1,56 @@
 @import "../variables.scss";
 
 .header{
-    width: 100%;
-    background-color: $color-primary;
-    display:grid;
-    grid-template-columns: 20% 60% 20%;
-    padding: 24px 0;
-    &__title{
-        font-size: 2.3rem;
-        color: $color-claro;
-        text-align: center;
-    }
-    &__icon{
-        display: inline-block;
-        margin: auto;
-    }
-    &__search{
-        background: transparent;
-        border: none;
-        border-bottom: $color-claro solid 1px;
-        padding: 0 10px;
-        color: $color-claro;
-        &::placeholder{
-            color: $color-claro;
+    display: flex;
+    &-navigation_phone{
+        background: $color-primary;
+        height: 100vh;
+        width: 100vw;
+        transform: translateX(-100%);
+        position:fixed;
+        transition: 1s;
+        z-index: 99;
+        &__close{
+            display: block;
+            margin: 35px 20px 35px auto;
+
         }
+        a{
+            color: $color-claro;
+            display: block;
+            font-size: 1.6rem;
+            margin: 15px 20px;
+        }
+    }
+    &-show{
+        width: 100%;
+        background-color: $color-primary;
+        display:grid;
+        grid-template-columns: 20% 60% 20%;
+        padding: 24px 0;
+        &__title{
+            font-size: 2.3rem;
+            color: $color-claro;
+            text-align: center;
+        }
+        &__icon{
+            display: inline-block;
+            margin: auto;
+        }
+        &__search{
+            background: transparent;
+            border: none;
+            border-bottom: $color-claro solid 1px;
+            padding: 0 10px;
+            color: $color-claro;
+            &::placeholder{
+                color: $color-claro;
+            }
+        }
+    }
+}
+.activePage{
+    &::before{
+        content: '> ';
     }
 }

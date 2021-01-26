@@ -1,0 +1,79 @@
+@import "../variables.scss";
+.cart{
+    &-notfound{
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 20% 0;
+        &icon{
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    &-next{
+        display: flex;
+        justify-items: right;
+        width: 100%;
+        border-top: $color-oscuro solid 1px;
+        border-bottom: $color-oscuro solid 1px;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        background-color: $color-claro;
+        &__parraf{
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            color: $color-oscuro;
+            margin: auto 0;
+            margin-left: auto;
+        }
+        &__price{
+            font-size: 1.3rem;
+            color: $color-primary;
+            margin: auto 0;
+        }
+        &__submit{
+            width: 30%;
+            padding: 10px 0;
+            margin-left: 15px;
+            margin-right: 15px;
+            background-color: $color-primary;
+            color: $color-claro;
+            font-size: 1.5rem;
+            border:none;
+            border-radius: 5px;
+            text-align: center;
+        }
+    }
+    &-product{
+        display: flex;
+        border: $color-oscuro solid 1px;
+        border-radius: 5px;
+        margin: 30px auto;
+        width: 90%;
+        &__image{
+            width: 40%;
+            height: auto;
+            border-radius: 5px;
+        }
+        &__information{
+            width: 60%;
+            margin: auto 0;
+            margin-left: 15px;
+            &__title{
+                font-size: 1.5rem;
+                color: $color-titles;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+            }
+            &__price{
+                color: $color-primary;
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+            &__cantidad{
+                font-size: 1.3rem;
+                color: $color-oscuro;
+            }
+        }
+    }
+}
