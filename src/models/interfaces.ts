@@ -18,6 +18,7 @@ export interface IProps extends IProduct {
     products?:IProduct[];
     addToCart?: (payload:IProduct) => any; 
     setDeliveryDates?: (payload: IDeliveryDates) => any;
+    setOrders?: (payload: Order) => any;
     cart?: IProduct[];
     user?: any;
 }
@@ -25,6 +26,7 @@ export interface IProps extends IProduct {
 export interface IState{
     user: {},
     cart: IProduct[],
+    orders: Order[],
     products: IProduct[]
 }
 export interface IActions {
@@ -38,4 +40,10 @@ export interface IDeliveryDates {
     address: string,
     departament: string,
     city: string
+}
+export interface Order{
+    products: IProduct[]
+    amountTotal:number,
+    id: number,
+    dateTime: string
 }

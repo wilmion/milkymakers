@@ -10,6 +10,7 @@ import App from './routes/App';
 const initialState:any = {
     "user":{},
     "cart" : [],
+    "orders": [],
     "products": [
         {
             "id":1,

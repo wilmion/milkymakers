@@ -1,0 +1,61 @@
+@import "../variables.scss";
+
+.auth{
+    width: 80%;
+    margin: auto auto;
+    background-color: $color-claro;
+    &__primordial{
+        background-color: gainsboro;
+        width: 100%;
+        min-height: 100vh;
+        padding-top: 100px;
+    }
+    &__title{
+        font-size: 3rem;
+        text-align: center;
+        padding: 50px 0;
+        color: $color-claro;
+        background-color: #4b2a47;
+        border-bottom-right-radius: 100%;
+        text-transform: uppercase;
+    }
+    &__input{
+        border: none;
+        border-bottom: $color-oscuro solid 1px;
+        padding: 0 10px;
+        display: block;
+        width: 90%;
+        margin: 25px auto;
+        font-size: 1.5rem;
+    }
+    &__button{
+        background-color: $color-primary;
+        color: $color-claro;
+        width: 60%;
+        padding: 10px 0;
+        font-size: 1.5rem;
+        display: block;
+        margin: 50px auto;
+        border-radius: 5px;
+        border: none;
+        &:disabled{
+            background-color: $color-oscuro;
+            color: $color-titles;
+            width: 60%;
+            padding: 10px 0;
+            font-size: 1.5rem;
+            display: block;
+            margin: 50px auto;
+            border-radius: 5px;
+            border: none;
+        }
+    }
+    &__register{
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 30px 0;
+        background-color: #c7a6d6;
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%;
+    }
+}

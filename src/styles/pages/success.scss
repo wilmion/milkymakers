@@ -1,0 +1,32 @@
+@import "../variables.scss";
+
+.success{
+    &__icon{
+        display: block;
+        margin: 50px auto;
+    }
+    &__title{
+        font-size: 3rem;
+        text-align: center;
+        margin: 15px 0;
+        color: $color-titles;
+    }
+    &__info{
+        font-size: 1.6rem;
+        text-align: center;
+        margin: 15px 0;
+        color: $color-oscuro;
+    }
+    &__button{
+        background: $color-primary;
+        text-align: center;
+        color: $color-claro;
+        font-size: 1.6rem;
+        padding: 15px 0;
+        width: 40%;
+        display: block;
+        border: none;
+        border-radius: 10px;
+        margin: 25px auto;
+    }
+}
