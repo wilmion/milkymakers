@@ -1,22 +1,38 @@
 import React , {useRef} from 'react'
-import { Link } from 'react-router-dom'
+import { Link , useHistory} from 'react-router-dom'
+import { connect } from 'react-redux';
+import { RegisterUser } from '../redux/actions';
 
 import Layout from '../components/Layout'
 
 import '../styles/pages/auth.scss';
+import { IProps, IState, IUser } from '../models/interfaces';
 
-const Register = () => {
+const Register:React.FC<IProps> = (props) => {
     const form = useRef(document.createElement('form'));
     const button = useRef(document.createElement('button'))
+    const { RegisterUser , user } = props;
+    const history = useHistory();
+
+    if(user && user.auth){
+        history.push('/user');
+    }
 
     const handleSubmit = (e:any):void => {
         e.preventDefault();
         const formData = new FormData(form.current);
-        const data = {
-            name: formData.get('name'),
+        const data : IUser = {
+            auth: true,
+            name: formData.get('name') ,
             email: formData.get('email'),
             password: formData.get('password')
         }
+        if(RegisterUser){
+            RegisterUser({
+                ...data
+            })
+        }
+        history.push('/');
         console.log(data);
     }
 
@@ -57,5 +73,11 @@ const Register = () => {
         </Layout>
     )
 }
+const mapDispatchToProps = ({
+    RegisterUser,
+})
+const mapStateToProps = (state:IState) => ({
+    user: state.user
+})
 
-export default Register
+export default connect(mapStateToProps , mapDispatchToProps)(Register)

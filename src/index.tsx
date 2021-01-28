@@ -8,7 +8,12 @@ import { reducer } from './redux/reducer';
 import App from './routes/App';
 
 const initialState:any = {
-    "user":{},
+    "user":{
+        "auth":false,
+        "email": null,
+        "password": null,
+        "name": null
+    },
     "cart" : [],
     "orders": [],
     "products": [

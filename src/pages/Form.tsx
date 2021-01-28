@@ -9,9 +9,9 @@ import Layout from '../components/Layout'
 import '../styles/pages/form.scss';
 
 
-const Form:React.FC = (props:IProps) => {
+const Form:React.FC<IProps> = (props) => {
 
-    const { setDeliveryDates} = props;
+    const { setDeliveryDates , user} = props;
     const [form , setValues] = useState({
         name: '',
         cp: '',
@@ -21,6 +21,10 @@ const Form:React.FC = (props:IProps) => {
     })
     
     const history = useHistory();
+
+    if(user && !user.auth ){
+        history.push('/login')
+    }
 
     const handleSubmit = (e:any):void => {
         e.preventDefault();
@@ -67,4 +71,9 @@ const Form:React.FC = (props:IProps) => {
 const mapDispatchToProps = {
     setDeliveryDates,
 }
-export default connect(null , mapDispatchToProps)(Form)
+const mapStateToProps =(state:IState) =>  {
+    return {
+        user: state.user
+    }
+}
+export default connect(mapStateToProps , mapDispatchToProps)(Form)

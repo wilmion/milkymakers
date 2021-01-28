@@ -1,0 +1,67 @@
+@import "../variables.scss";
+.user{
+    &-information{
+        margin: 100px 0;
+        &__title{
+            font-size: 2rem;
+            text-align: center;
+            margin: 25px 0;
+        }
+        &__email{
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 5px 0;
+        }
+    }
+    &-orders{
+        &__title{
+            font-size: 3rem;
+            color: $color-titles;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        &__empy{
+            font-size: 1.6rem;
+            text-align: center;
+            margin: 25px 0;
+            color: red;
+        }
+        &__item{
+            width: 80%;
+            padding: 15px;
+            border: $color-oscuro solid 1px;
+            border-radius: 15px;
+            margin: 25px auto;
+            &__information{
+                font-size: 1.6rem;
+                color: $color-oscuro;
+                margin: 15px 0;
+                text-align: center;
+            }
+            &__button{
+                width: 70%;
+                background-color: $color-primary;
+                color: $color-claro;
+                text-align: center;
+                border: none;
+                border-radius: 10px;
+                display: block;
+                margin: 0 auto;
+                padding: 10px 0;
+                font-size: 1.6rem;
+            }
+        }
+    }
+    &__button{
+        background-color: rgb(83, 23, 23);
+        border: none;
+        color: $color-claro;
+        font-size: 1.6rem;
+        margin: 25px auto;
+        display: block;
+        border-radius: 10px;
+        width: 50%;
+        padding: 10px 0;
+        
+    }
+}

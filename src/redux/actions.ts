@@ -1,4 +1,4 @@
-import { IDeliveryDates, IProduct, Order } from '../models/interfaces';
+import { IDeliveryDates, IProduct, IUser, Order } from '../models/interfaces';
 
 export const addToCart = (payload:IProduct) => ({
     type: 'ADD_TO_CART',
@@ -14,3 +14,11 @@ export const setOrders = (payload:Order ) => ({
     type: 'SET_ORDERS',
     payload,
 }) 
+export const RegisterUser = (payload:IUser) => ({
+    type: 'REGISTER',
+    payload
+});
+export const LogOut = (payload:IUser) => ({
+    type: 'LOG_OUT',
+    payload
+});

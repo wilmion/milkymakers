@@ -10,17 +10,19 @@ import { PayPalButton , PaypalOptions , ButtonStylingOptions, OnCaptureData } fr
 
 import '../styles/pages/payment.scss';
 
-const Payment = (props:IProps) => {
-    const { cart , setOrders} = props;
+const Payment:React.FC<IProps> = (props) => {
+    const { cart , setOrders , user} = props;
 
     const [errorMsg , setErrorMsg] = useState('');
 
     const history = useHistory();
 
-    if(!cart || !setOrders){
+    if(!cart || !setOrders || !user){
         return <></>;
     }
-
+    if(!user.auth){
+        history.push('/login');
+    }
     const paypallOptions:PaypalOptions = {
         clientId:'AaFevmHFJUOBMmkhEH5FT63qxd3EmpUGon9iRUDfeSWMwKmBNkEI_yL6AQhNDCtvHyyXhPpMYZnzK-no',
         currency: 'EUR',
@@ -86,7 +88,8 @@ const Payment = (props:IProps) => {
 
 const mapStateToProps = (state:IState) => {
     return {
-        cart: state.cart
+        cart: state.cart,
+        user: state.user
     }
 }
 const mapDispatchToProps = {

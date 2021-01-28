@@ -16,15 +16,18 @@ export interface IProps extends IProduct {
     Nameclass?:string;
     modifiquer?:string;
     products?:IProduct[];
+    orders?:Order[];
     addToCart?: (payload:IProduct) => any; 
     setDeliveryDates?: (payload: IDeliveryDates) => any;
     setOrders?: (payload: Order) => any;
+    RegisterUser?: (payload: IUser) => any;
+    LogOut?: (payload: IUser) => any;
     cart?: IProduct[];
-    user?: any;
+    user?: IUser;
 }
 
 export interface IState{
-    user: {},
+    user: IUser,
     cart: IProduct[],
     orders: Order[],
     products: IProduct[]
@@ -46,4 +49,10 @@ export interface Order{
     amountTotal:number,
     id: number,
     dateTime: string
+}
+export interface IUser{
+    auth: boolean;
+    email: FormDataEntryValue | null;
+    password: FormDataEntryValue | null;
+    name: FormDataEntryValue | null;
 }
