@@ -11,13 +11,13 @@ import { PayPalButton , PaypalOptions , ButtonStylingOptions, OnCaptureData } fr
 import '../styles/pages/payment.scss';
 
 const Payment:React.FC<IProps> = (props) => {
-    const { cart , setOrders , user} = props;
+    const { cart , setOrders , user , orders} = props;
 
     const [errorMsg , setErrorMsg] = useState('');
 
     const history = useHistory();
 
-    if(!cart || !setOrders || !user){
+    if(!cart || !setOrders || !user || !orders){
         return <></>;
     }
     if(!user.auth){
@@ -41,19 +41,21 @@ const Payment:React.FC<IProps> = (props) => {
         totalPrice += (item.price|| 1)*item.length;
         totalProducts+= item.length;
     })
-
+    
     const onSuccess = (data:OnCaptureData):void => {
         if(data.status === 'COMPLETED'){
             const dateTime:string = data.create_time;
-            const paymentId:number = Number(data.id);
+            const paymentId:string = data.id;
             const amount:number = Math.round(totalPrice);
 
             setOrders({
                 products: cart,
                 amountTotal: amount,
                 id: paymentId,
+                identifiquer: orders.length ,
                 dateTime: dateTime
             })
+
             history.push('/checkout/success');
         }
         
@@ -89,7 +91,8 @@ const Payment:React.FC<IProps> = (props) => {
 const mapStateToProps = (state:IState) => {
     return {
         cart: state.cart,
-        user: state.user
+        user: state.user,
+        orders: state.orders
     }
 }
 const mapDispatchToProps = {

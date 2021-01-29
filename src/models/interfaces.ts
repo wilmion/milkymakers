@@ -47,8 +47,9 @@ export interface IDeliveryDates {
 export interface Order{
     products: IProduct[]
     amountTotal:number,
-    id: number,
-    dateTime: string
+    id: string,
+    dateTime: string,
+    identifiquer:number
 }
 export interface IUser{
     auth: boolean;

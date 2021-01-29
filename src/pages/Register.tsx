@@ -2,7 +2,7 @@ import React , {useRef} from 'react'
 import { Link , useHistory} from 'react-router-dom'
 import { connect } from 'react-redux';
 import { RegisterUser } from '../redux/actions';
-
+import { useRegister } from '../hooks/Fetching';
 import Layout from '../components/Layout'
 
 import '../styles/pages/auth.scss';
@@ -21,18 +21,25 @@ const Register:React.FC<IProps> = (props) => {
     const handleSubmit = (e:any):void => {
         e.preventDefault();
         const formData = new FormData(form.current);
+        const email:any = formData.get('email') ;
+        const password:any = formData.get('password');
+
         const data : IUser = {
             auth: true,
             name: formData.get('name') ,
             email: formData.get('email'),
             password: formData.get('password')
         }
-        if(RegisterUser){
+    
+        const completed : boolean = useRegister( email , password , data )
+        if(RegisterUser && completed){
             RegisterUser({
                 ...data
             })
+            history.push('/');
         }
-        history.push('/');
+
+        
         console.log(data);
     }
 

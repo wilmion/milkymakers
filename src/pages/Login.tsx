@@ -5,6 +5,7 @@ import {RegisterUser} from '../redux/actions';
 
 import Layout from '../components/Layout'
 import { IProps, IState, IUser } from '../models/interfaces';
+import { useLogin } from '../hooks/Fetching';
 
 import '../styles/pages/auth.scss';
 const Login:React.FC<IProps> = (props) => {
@@ -19,20 +20,26 @@ const Login:React.FC<IProps> = (props) => {
     const handleSubmit = (e:any):void => {
         e.preventDefault();
         const formData = new FormData(form.current);
+        const email:any = formData.get('email');
+        const password:any = formData.get('password');
+
         const data:IUser = {
             auth:true ,
-            name: "Anonymus",
-            email: formData.get('email'),
-            password: formData.get('password')
+            name: "Name User",
+            email: email,
+            password: password
         }
-        if(RegisterUser){
+        const completed:boolean = useLogin(email , password);
+        
+        if(RegisterUser && completed ){
             RegisterUser({
                 ...data
             });
+            history.push('/');
         }
         
         console.log(data);
-        history.push('/');
+        
     }
     
 

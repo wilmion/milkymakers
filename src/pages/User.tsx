@@ -73,11 +73,11 @@ const orderMap = (orders:Order[]):JSX.Element => {
                     productsN += product.length;
                 })
                 return (
-                    <section className="user-orders__item">
+                    <section key={order.id} className="user-orders__item">
                         <p className="user-orders__item__information">Price : {order.amountTotal}</p>
                         <p className="user-orders__item__information">Day : {order.dateTime}</p>
                         <p className="user-orders__item__information">Products : {productsN}</p>
-                        <Link className="user-orders__item__button" to={`/user/order/${order.id}`}>More Information</Link>
+                        <Link className="user-orders__item__button" to={`/user/order/${order.identifiquer}`}>More Information</Link>
                     </section>
                 )
             })

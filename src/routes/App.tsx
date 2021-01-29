@@ -11,6 +11,7 @@ const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
 const Success = lazy(() => import('../pages/Success'));
 const User = lazy(() => import('../pages/User'));
+const OrderPage = lazy(() => import('../pages/OrderPage'));
 
 import '../styles/global.scss';
 
@@ -27,6 +28,7 @@ const App:React.FC = () => {
                     <Route exact path='/checkout/payment' component={Payment} />
                     <Route exact path='/checkout/success' component={Success} />
                     <Route exact path='/user' component={User} />
+                    <Route exact path='/user/order/:id' component={OrderPage} />
                     <Route exact path='/login' component={Login} />                
                     <Route exact path='/register' component={Register} />
                     <Route component={NotFound} />

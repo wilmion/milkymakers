@@ -1,0 +1,82 @@
+@import "../variables.scss";
+
+.order {
+    &__title{
+        font-size: 3.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 25px 0;
+    }
+    &__indentify{
+        font-size: 1.5rem;
+        text-align: center;
+        color: rgb(56, 73, 22);
+        font-family: monospace;
+    }
+    &-item{
+        width: 80%;
+        margin: 25px auto;
+        border: $color-oscuro solid 1px;
+        border-radius: 10px;
+        padding: 15px;
+        img{
+            width: 100%;
+            height: auto;
+            margin: 0 0 25px;
+        }
+        &__title{
+            font-size: 2rem;
+            text-align: center;
+            color: $color-titles;
+            margin: 15px 0;
+        }
+        &__price{
+            font-size: 1.6rem;
+            text-align: center;
+            margin: 10px 0;
+            color: $color-primary;
+        }
+        &__cantidad{
+            font-size: 1.6rem;
+            text-align: center;
+            margin: 10px 0;
+            color: green;
+        }
+        &__button{
+            background-color: $color-primary;
+            color: $color-claro;
+            font-size: 1.7rem;
+            width: 60%;
+            text-align: center;
+            padding: 10px 0;
+            display: block;
+            margin: 10px auto;
+            border: none;
+            border-radius: 10px;
+        }
+    }
+    &__price{
+        font-size: 1.7rem;
+        text-align: center;
+        margin: 10px 0;
+        color: $color-primary;
+    }
+    &__products{
+        font-size: 1.7rem;
+        text-align: center;
+        margin: 10px 0;
+        color: rgb(126, 96, 19);
+    }
+    &__button{
+        background-color: $color-primary;
+        color: $color-claro;
+        font-size: 1.7rem;
+        width: 60%;
+        text-align: center;
+        padding: 10px 0;
+        display: block;
+        margin: 10px auto;
+        border: none;
+        border-radius: 10px;
+    }
+}
