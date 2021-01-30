@@ -43,10 +43,10 @@ const Payment:React.FC<IProps> = (props) => {
         totalProducts+= item.length;
     })
     
-    const onSuccess = (data:OnCaptureData):void => {
-        if(data.status === 'COMPLETED'){
-            const dateTime:string = data.create_time;
-            const paymentId:string = data.id;
+    const onSuccess = (/*data:OnCaptureData*/e:any):void => {
+        /*if(data.status === 'COMPLETED'){*/
+            const dateTime:string = '10-25-12' //data.create_time;
+            const paymentId:string = '2SAsas2A5FkiioBiuhaSAs5a26' //data.id;
             const amount:number = Math.round(totalPrice);
 
             setOrders({
@@ -61,7 +61,7 @@ const Payment:React.FC<IProps> = (props) => {
             usePostDataUser('cart' , String(user.email));
 
             history.push('/checkout/success');
-        }
+        /*}*/
         
     }
     const onError = (error:string) : void => {
@@ -85,16 +85,17 @@ const Payment:React.FC<IProps> = (props) => {
                         onPaymentError={onError}
                         onPaymentCancel={onCancel}
                     />
+                    <button onClick={() => onSuccess} >Terminar Pago</button>
                 </section>
                 <p className="payment__error" >{errorMsg}</p>
                 <p className="payment__error" >
-                    Por favor no hacer ningun pago real , si desea 
-                    testear la pagina , clone el repositorio por favor 
-                    y uitize la tarjeta virtual 4242 4242 4242 4242 , solo es una pagina de desmostracion
+                    Si desea ver la API de paypal solo posicionar su client ID de paypal
+                    en el paypalOptions , al clonar este repositorio yo no lo coloque por
+                    motivos de seguridad personal
                     <br/>
-                    Please do not make any actual payment, if you wish
-                    test the page, clone the repository please
-                    and use the virtual card 4242 4242 4242 4242, it is only a demo page
+                    If you want to see the paypal API just position your paypal client ID
+                    in the paypalOptions, when I cloned this repository I did not put it by
+                    personal safety reasons
                 </p>
             </section>
         </Layout>
