@@ -36,7 +36,7 @@ const Login:React.FC<IProps> = (props) => {
     
 
     return (
-        <Layout titlePage="Login">
+        <Layout titlePage="Login" >
             <section className="auth__primordial">
                 <section className="auth">
                     <h2 className="auth__title">Login</h2>
