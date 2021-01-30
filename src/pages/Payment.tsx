@@ -77,14 +77,14 @@ const Payment:React.FC<IProps> = (props) => {
                 <p className="payment__total">{Math.round(totalPrice)} €</p>
                 <p className="payment__products">{totalProducts}</p>
                 <section className="payment__button">
-                    <PayPalButton 
+                    {/* <PayPalButton 
                         paypalOptions={paypallOptions}
                         buttonStyles={buttonStyles}
                         amount={Math.round(totalPrice)}
                         onPaymentSuccess={onSuccess}
                         onPaymentError={onError}
                         onPaymentCancel={onCancel}
-                    />
+                    /> */}
                     <button onClick={() => onSuccess} >Terminar Pago</button>
                 </section>
                 <p className="payment__error" >{errorMsg}</p>
