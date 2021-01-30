@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { setOrders } from '../redux/actions';
+import { usePostDataUser } from '../hooks/Fetching';
 
 import { IProps, IState } from '../models/interfaces'
 
@@ -13,7 +14,7 @@ import '../styles/pages/payment.scss';
 const Payment:React.FC<IProps> = (props) => {
     const { cart , setOrders , user , orders} = props;
 
-    const [errorMsg , setErrorMsg] = useState('');
+    const [errorMsg , setErrorMsg] = useState<string>('');
 
     const history = useHistory();
 
@@ -53,21 +54,24 @@ const Payment:React.FC<IProps> = (props) => {
                 amountTotal: amount,
                 id: paymentId,
                 identifiquer: orders.length ,
-                dateTime: dateTime
+                dateTime: dateTime,
+                delivery: user.delivery
             })
+            usePostDataUser('orders' , String(user.email));
+            usePostDataUser('cart' , String(user.email));
 
             history.push('/checkout/success');
         }
         
     }
     const onError = (error:string) : void => {
-        setErrorMsg('Ha ocurrido un error al efectuar su pago : ' + error);
+        setErrorMsg('An error occurred while making your payment: ' + error);
     }
     const onCancel = () : void => {
-        setErrorMsg('Un momento!! ya se desanimo? , no olvide que su barriga no estara muy contenta de su elección');
+        setErrorMsg('Just a moment!! Are you discouraged? , do not forget that your belly will not be very happy with your choice');
     }
     return (
-        <Layout>
+        <Layout titlePage="Payment">
             <section className="payment">
                 <h2 className="payment__title">Payment</h2>
                 <p className="payment__total">{Math.round(totalPrice)} €</p>

@@ -21,7 +21,7 @@ const User:React.FC<IProps> = (props) => {
     }
 
     const logOut = ():void => {
-        const data:IUser = {
+        const data:any = {
             auth:false,
             name:null,
             email: null,
@@ -34,7 +34,7 @@ const User:React.FC<IProps> = (props) => {
     }
 
     return (
-        <Layout>
+        <Layout titlePage={String(user.name)}>
             <section className="user">
                 <section className="user-information">
                     <h2 className="user-information__title">@{user.name}</h2>

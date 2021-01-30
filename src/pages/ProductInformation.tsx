@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams , useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToCart } from '../redux/actions'
+import { usePostDataUser } from '../hooks/Fetching';
 
 import { useProduct } from '../hooks/useProduct';
 import { IProduct, IProps, IState } from '../models/interfaces';
@@ -11,26 +12,27 @@ import Layout from '../components/Layout';
 
 import '../styles/pages/product_information.scss';
 
-const ProductInformation:React.FC = (props:IProps) => {
-    const {products , addToCart} = props;
+const ProductInformation:React.FC<IProps> = (props) => {
+    const {products , addToCart , user} = props;
     const params:{id:string} = useParams();
     const history = useHistory();
 
     const product:IProduct = useProduct( products || [] , Number(params.id) ); 
 
     const handleAddToCart = ():void => {
-        if(addToCart){
+        if(addToCart && user){
             addToCart({
                 ...product,
                 length: 1,
             })
+            usePostDataUser('cart' , String(user.email))
             history.push('/checkout/cart');
         }
     }
 
     return (
 
-        <Layout>
+        <Layout titlePage={product.title}>
             <h2 className="main__title">Start picking your treats</h2>
             <section className="product-information">
                 <Product Nameclass="product-information-details" details={true} {...product}/>
@@ -43,6 +45,7 @@ const ProductInformation:React.FC = (props:IProps) => {
 const mapStateToProps = (state:IState) => {
     return {
         products: state.products,
+        user: state.user
     }
 }
 const mapDispatchToProps = {

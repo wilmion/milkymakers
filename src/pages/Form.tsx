@@ -2,7 +2,7 @@ import React  , { useState} from 'react'
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setDeliveryDates } from '../redux/actions';
-import { IProps, IState } from '../models/interfaces';
+import { IDelivery, IProps, IState } from '../models/interfaces';
 
 import Layout from '../components/Layout'
 
@@ -12,7 +12,7 @@ import '../styles/pages/form.scss';
 const Form:React.FC<IProps> = (props) => {
 
     const { setDeliveryDates , user} = props;
-    const [form , setValues] = useState({
+    const [form , setValues] = useState<IDelivery>({
         name: '',
         cp: '',
         address: '',
@@ -42,7 +42,7 @@ const Form:React.FC<IProps> = (props) => {
         })
     }
     return (
-        <Layout>
+        <Layout titlePage="Dates Delivery">
             <section className="form">
                 <h2 className="form__title">Home Delivery Data</h2>
                 <form onSubmit={handleSubmit}>

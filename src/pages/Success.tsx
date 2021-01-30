@@ -8,7 +8,7 @@ import "../styles/pages/success.scss";
 
 const Success:React.FC = () => {
     return (
-        <Layout>
+        <Layout titlePage="Success">
             <section className="success">
                 <FaRegCheckCircle size="75px" className="success__icon" color="green" />
                 <h2 className="success__title">Trank's You</h2>

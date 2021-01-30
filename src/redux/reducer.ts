@@ -3,6 +3,11 @@ import { IActions, IState } from "../models/interfaces";
 export const reducer = (state: IState | undefined , action:IActions):any => {
     if(state ){
         switch(action.type) {
+            case 'SET_DATA':
+                return {
+                    ...state,
+                    [action.payload.variable]: action.payload.data
+                }
             case 'LOG_OUT':
                 return {
                     ...state,

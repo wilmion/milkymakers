@@ -5,6 +5,14 @@ export const addToCart = (payload:IProduct) => ({
     payload,
 });
 
+export const setData = (data:any , variable:string) => ({
+    type:'SET_DATA',
+    payload: {
+        data: data,
+        variable: variable
+    }
+})
+
 export const setDeliveryDates = (payload:IDeliveryDates ) => ({
     type: 'SET_DELIVERY_DATES',
     payload,

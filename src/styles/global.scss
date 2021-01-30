@@ -10,3 +10,14 @@ html {
 a{
     text-decoration: none;
 }
+body{
+    max-width: 400px;
+    margin: 0 auto;
+    
+}
+@media (min-width: 400px){
+    body{
+        border: black solid 1px ;
+        min-height: 100vh;
+    }
+}

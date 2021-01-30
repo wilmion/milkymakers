@@ -1,4 +1,4 @@
-import React,{useRef} from 'react'
+import React,{useRef , useState} from 'react'
 import { connect } from 'react-redux';
 import { Link , useHistory } from 'react-router-dom';
 import {RegisterUser} from '../redux/actions';
@@ -9,8 +9,9 @@ import { useLogin } from '../hooks/Fetching';
 
 import '../styles/pages/auth.scss';
 const Login:React.FC<IProps> = (props) => {
-    const form = useRef(document.createElement('form'));
-    const { user , RegisterUser } = props;
+    const form:React.MutableRefObject<HTMLFormElement> = useRef(document.createElement('form'));
+    const [error , setError] = useState<string>('')
+    const { user } = props;
     
     const history = useHistory();
     if(user && user.auth){
@@ -20,31 +21,22 @@ const Login:React.FC<IProps> = (props) => {
     const handleSubmit = (e:any):void => {
         e.preventDefault();
         const formData = new FormData(form.current);
-        const email:any = formData.get('email');
-        const password:any = formData.get('password');
-
-        const data:IUser = {
-            auth:true ,
-            name: "Name User",
-            email: email,
-            password: password
-        }
+        const email:string = String(formData.get('email'));
+        const password:string = String(formData.get('password'));
         const completed:boolean = useLogin(email , password);
         
-        if(RegisterUser && completed ){
-            RegisterUser({
-                ...data
-            });
+        if(completed ){
             history.push('/');
+        }else{
+            setError('there was an error when logging in, check the email and password')
         }
-        
-        console.log(data);
+
         
     }
     
 
     return (
-        <Layout>
+        <Layout titlePage="Login">
             <section className="auth__primordial">
                 <section className="auth">
                     <h2 className="auth__title">Login</h2>
@@ -58,6 +50,7 @@ const Login:React.FC<IProps> = (props) => {
                         <button className="auth__button" type="submit">LOGIN</button>
                     </form>
                     <p className="auth__register">Aun no tienes cuenta? <Link to="/register">Registrate</Link> </p>
+                    <p className="auth_errorMesagge">{error}</p>
                 </section>
             </section>        
         </Layout>

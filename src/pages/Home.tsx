@@ -7,13 +7,10 @@ import Products from '../components/Products';
 
 
 
-const Home = (props:IProps) => {
-    const {products , orders} = props;
-    
-    localStorage.setItem('orders' , JSON.stringify(orders));
-
+const Home:React.FC<IProps> = (props) => {
+    const {products} = props;
     return (
-        <Layout>
+        <Layout titlePage="Home">
             <h2 className="main__title">Start picking your treats</h2>
             <section className="content">
                 <section className="products">
@@ -27,8 +24,7 @@ const Home = (props:IProps) => {
 }
 const mapStateToProps = (state:IState) => {
     return {
-        products: state.products,
-        orders: state.orders
+        products: state.products
     }
 }
 export default connect( mapStateToProps , null)(Home)

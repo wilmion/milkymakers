@@ -58,4 +58,10 @@
         border-top-left-radius: 100%;
         border-top-right-radius: 100%;
     }
+    &_errorMesagge{
+        font-size: 1.6rem;
+        text-align: center;
+        margin: 40px 0;
+        color: red;
+    }
 }

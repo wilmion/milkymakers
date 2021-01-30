@@ -1,4 +1,4 @@
-import React , {useRef} from 'react'
+import React , {useRef , useState} from 'react'
 import { Link , useHistory} from 'react-router-dom'
 import { connect } from 'react-redux';
 import { RegisterUser } from '../redux/actions';
@@ -6,9 +6,10 @@ import { useRegister } from '../hooks/Fetching';
 import Layout from '../components/Layout'
 
 import '../styles/pages/auth.scss';
-import { IProps, IState, IUser } from '../models/interfaces';
+import { IProps, IState } from '../models/interfaces';
 
 const Register:React.FC<IProps> = (props) => {
+    const [error , setError] = useState<string>('');
     const form = useRef(document.createElement('form'));
     const button = useRef(document.createElement('button'))
     const { RegisterUser , user } = props;
@@ -21,14 +22,14 @@ const Register:React.FC<IProps> = (props) => {
     const handleSubmit = (e:any):void => {
         e.preventDefault();
         const formData = new FormData(form.current);
-        const email:any = formData.get('email') ;
-        const password:any = formData.get('password');
+        const email:string = String(formData.get('email')) ;
+        const password:string = String(formData.get('password'));
 
-        const data : IUser = {
+        const data : any = {
             auth: true,
             name: formData.get('name') ,
-            email: formData.get('email'),
-            password: formData.get('password')
+            email: email,
+            password: 'NOT USED',
         }
     
         const completed : boolean = useRegister( email , password , data )
@@ -37,16 +38,15 @@ const Register:React.FC<IProps> = (props) => {
                 ...data
             })
             history.push('/');
+        }else{
+            setError('An error has occurred while registering your account, verify that the account you have entered has not been created previously')
         }
-
-        
-        console.log(data);
     }
 
     const handleValidate = ():void => {
         const formData = new FormData(form.current);
-        const pass = formData.get('password') ;
-        const Rpass = formData.get('repeatpassword') ;
+        const pass:string = String(formData.get('password')) ;
+        const Rpass:string = String(formData.get('repeatpassword')) ;
         if(pass === Rpass){
             button.current.disabled = false;
         }else{
@@ -55,7 +55,7 @@ const Register:React.FC<IProps> = (props) => {
     }
 
     return (
-        <Layout>
+        <Layout titlePage="Register">
             <section className="auth__primordial">
                 <section className="auth">
                     <h2 className="auth__title">REGISTER</h2>
@@ -75,6 +75,7 @@ const Register:React.FC<IProps> = (props) => {
                         <button ref={button} className="auth__button" type="submit" disabled>Register</button>
                     </form>
                     <p className="auth__register">Ya tienes cuenta? <Link to="/login">Inicia sesion</Link> </p>
+                    <p className="auth_errorMesagge">{error}</p>
                 </section>
             </section>        
         </Layout>

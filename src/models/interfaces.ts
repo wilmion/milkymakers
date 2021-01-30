@@ -24,6 +24,7 @@ export interface IProps extends IProduct {
     LogOut?: (payload: IUser) => any;
     cart?: IProduct[];
     user?: IUser;
+    titlePage? : string;
 }
 
 export interface IState{
@@ -34,7 +35,7 @@ export interface IState{
 }
 export interface IActions {
     type: string,
-    payload: any
+    payload: any,
 }
 
 export interface IDeliveryDates {
@@ -49,11 +50,20 @@ export interface Order{
     amountTotal:number,
     id: string,
     dateTime: string,
-    identifiquer:number
+    identifiquer:number,
+    delivery: IDelivery
+}
+export interface IDelivery {
+    name:string,
+    address:string,
+    cp:string,
+    city:string,
+    departament:string
 }
 export interface IUser{
     auth: boolean;
     email: FormDataEntryValue | null;
     password: FormDataEntryValue | null;
     name: FormDataEntryValue | null;
+    delivery: IDelivery
 }

@@ -8,7 +8,7 @@ import { IProps, IState } from '../models/interfaces';
 
 import '../styles/pages/cart.scss';
 
-const Cart:React.FC = (props:IProps) => {
+const Cart:React.FC<IProps> = (props) => {
     const { cart } = props;
     if(!cart){
         return <></>;
@@ -18,7 +18,7 @@ const Cart:React.FC = (props:IProps) => {
         totalPrice += (item.price|| 1)*item.length;
     })
     return (
-        <Layout>
+        <Layout titlePage="Cart">
             <section className="cart">
                  {
                     cart.length === 0?
@@ -50,7 +50,7 @@ const Cart:React.FC = (props:IProps) => {
     )
 }
 
-const mapStateToProps = (state : IState) => {
+const mapStateToProps = (state : IState):any => {
     return {
         cart: state.cart,
     }

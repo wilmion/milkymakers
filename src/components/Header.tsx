@@ -2,11 +2,12 @@ import React , {useRef} from 'react'
 import { NavLink} from 'react-router-dom';
 import {AiOutlineSearch , AiOutlineMenu , AiFillCloseCircle} from 'react-icons/ai';
 
+
 import '../styles/components/header.scss';
 
-const Header= (props:any) => {
+const Header:React.FC<any> = (props) => {
     
-    const {onChange , onClick ,searching} = props;
+    const {onChange , onClick ,searching } = props;
     const input_:React.MutableRefObject< null | HTMLInputElement> = useRef(null);
     const nav_:React.MutableRefObject<HTMLElement> = useRef(document.createElement('section'));
 
@@ -15,12 +16,15 @@ const Header= (props:any) => {
     const showNav = (show:boolean) => ():void => {
         if(show){
             nav_.current.style.transform = 'translateX(0)';
+            nav_.current.style.opacity = '1';
         }else{
             nav_.current.style.transform = 'translateX(-100%)';
+            nav_.current.style.opacity = '0';
         }
     }
 
     return (
+    <>
         <header className="header">
             <section ref={nav_} className="header-navigation_phone">
                 <AiFillCloseCircle  className="header-navigation_phone__close" size="20px" color="white" onClick={showNav(false)}/>
@@ -39,7 +43,7 @@ const Header= (props:any) => {
                 
             </section> 
         </header>
-        
+    </>
     )
 }
 
