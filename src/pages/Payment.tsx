@@ -25,7 +25,7 @@ const Payment:React.FC<IProps> = (props) => {
         history.push('/login');
     }
     const paypallOptions:PaypalOptions = {
-        clientId:'AaFevmHFJUOBMmkhEH5FT63qxd3EmpUGon9iRUDfeSWMwKmBNkEI_yL6AQhNDCtvHyyXhPpMYZnzK-no',
+        clientId:'',
         currency: 'EUR',
         intent: 'capture'
     }
@@ -87,6 +87,15 @@ const Payment:React.FC<IProps> = (props) => {
                     />
                 </section>
                 <p className="payment__error" >{errorMsg}</p>
+                <p className="payment__error" >
+                    Por favor no hacer ningun pago real , si desea 
+                    testear la pagina , clone el repositorio por favor 
+                    y uitize la tarjeta virtual 4242 4242 4242 4242 , solo es una pagina de desmostracion
+                    <br/>
+                    Please do not make any actual payment, if you wish
+                    test the page, clone the repository please
+                    and use the virtual card 4242 4242 4242 4242, it is only a demo page
+                </p>
             </section>
         </Layout>
     )

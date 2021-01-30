@@ -1,5 +1,5 @@
 # Milky Makers
-Proyecto de una e-comerce , de productos comestibles
+Proyecto de una E-comerce , de productos comestibles
 
 #### Frameworks
  - React 
@@ -11,6 +11,10 @@ Proyecto de una e-comerce , de productos comestibles
  - Typescript
  - Sass
 
+#### Extras:
+
+ - Pagina del proyecto  [Milky Makers](https://milky-makers.web.app/ "Milky Makers")
+
 #### Comandos de Ejecución :
  - Encender el entorno de dessarrollo Local :
  ```actionscript
@@ -21,6 +25,8 @@ npm run start || npm start
 ```actionscript
 npm run build
 ```
+
+> No hacer ningun pago real ya que se utiliza paypal dashboard , ni tampoco hacer fraudes  , Este proyecto fue creado como demostracion de lo que puedo hacer 
 
 Creacion en mobile first
 
