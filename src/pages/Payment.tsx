@@ -43,7 +43,7 @@ const Payment:React.FC<IProps> = (props) => {
         totalProducts+= item.length;
     })
     
-    const onSuccess = (/*data:OnCaptureData*/e:any):void => {
+    const onSuccess = (/*data:OnCaptureData*/):void => {
         /*if(data.status === 'COMPLETED'){*/
             const dateTime:string = '10-25-12' //data.create_time;
             const paymentId:string = '2SAsas2A5FkiioBiuhaSAs5a26' //data.id;
@@ -85,7 +85,7 @@ const Payment:React.FC<IProps> = (props) => {
                         onPaymentError={onError}
                         onPaymentCancel={onCancel}
                     /> */}
-                    <button onClick={() => onSuccess} >Terminar Pago</button>
+                    <button onClick={() => onSuccess()} >Terminar Pago</button>
                 </section>
                 <p className="payment__error" >{errorMsg}</p>
                 <p className="payment__error" >
