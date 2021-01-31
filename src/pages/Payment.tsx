@@ -85,7 +85,7 @@ const Payment:React.FC<IProps> = (props) => {
                         onPaymentError={onError}
                         onPaymentCancel={onCancel}
                     /> */}
-                    <button onClick={() => onSuccess()} >Terminar Pago</button>
+                    <button className="payment__button__alternative" onClick={() => onSuccess()} >Terminar Pago</button>
                 </section>
                 <p className="payment__error" >{errorMsg}</p>
                 <p className="payment__error" >
